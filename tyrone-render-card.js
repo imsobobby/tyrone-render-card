@@ -4741,7 +4741,7 @@ class TyroneRenderCard extends HTMLElement {
     this._bundled = !this._url || this._url === "bundled";
     if (this._bundled) this._url = null;
     this._origin = null;
-    try { this._origin = this._url ? new URL(this._url).origin : null; } catch (e) { /* bad URL */ }
+    try { this._origin = this._url ? new URL(this._url, window.location.href).origin : null; } catch (e) { /* bad URL */ }
     this._render();
   }
 
